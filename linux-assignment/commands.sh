@@ -18,7 +18,6 @@ echo "Current shell:"
 echo $SHELL
 
 
-#!/bin/bash
 
 # Create a directory named linux_fundamentals in the home directory
 sudo mkdir linux_fundamentals
@@ -43,3 +42,25 @@ sudo chmod 644 linux_fundamentals/backup/example.txt
 
 # Verify the permission changes
 sudo ls -l linux_fundamentals/backup/example.txt
+
+
+
+
+# Step 1: Create a new group named students
+sudo groupadd students
+
+# Step 2: Create a new user named student and assign them to the students group
+sudo useradd -g students student
+
+# Step 3: Create a file named example.txt in the home directory
+touch example.txt
+
+# Step 4: Change the owner of example.txt to the user student
+sudo chown student example.txt
+
+# Step 5: Change the group of example.txt to the group students
+sudo chgrp students example.txt
+
+# Step 6: Verify the changes
+ls -l example.txt
+

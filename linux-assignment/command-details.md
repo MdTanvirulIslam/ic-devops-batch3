@@ -138,3 +138,68 @@ The output will show the name of the shell process, e.g., bash or zsh.
 
 ![manage file permission](images/9.png)
 
+
+## File Modification
+
+1. Create a file named example.txt in your home directory. 
+2. Change the owner of example.txt to a user named student 
+3. Change the group of example.txt to a group named students. 
+4. Verify the changes using appropriate commands.
+
+
+>- Check if the user exists:
+
+        id student
+
+>- Check if the group exists:
+
+        getent group students
+
+>- Create the user and group (if they do not exist):
+
+    
+        sudo groupadd students
+        sudo useradd -g students student
+
+
+
+
+### 1. Create a file named example.txt in your home directory
+
+
+        touch example.txt
+
+### 2. Change the owner of *example.txt* to a user named *student*
+
+
+         sudo chown student example.txt
+
+ >- Explanation:
+
+    >- ***sudo:*** Grants administrative privileges required to change file ownership.
+
+    >- ***chown student:*** Changes the owner of the file to *student*.
+
+
+### 3. Change the group of *example.txt* to a group named *students*
+
+        sudo chgrp students example.txt
+
+>- Explanation:
+
+    >- sudo: Grants administrative privileges required to change group ownership.
+
+    >- chgrp students: Changes the group of the file to students.
+
+
+### 4. Verify the changes using appropriate commands
+
+
+        ls -l example.txt
+
+
+![ile Modification](images/10.png)
+
+
+
+
