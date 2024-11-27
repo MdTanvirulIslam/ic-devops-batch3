@@ -126,5 +126,15 @@ The output will show the name of the shell process, e.g., bash or zsh.
         ls -l linux_fundamentals/backup/example.txt
 
 
+#### Examples of Common Permissions
+
+    Octal	Symbolic	Description
+    777	    rwxrwxrwx	Everyone has full access.
+    755	    rwxr-xr-x	Owner has full access, others can read/execute.
+    644	    rw-r--r--	Owner can read/write, others can only read.
+    700	    rwx------	Only the owner has full access.
+    000	    ----------	No one has any access.
+
+
 ![manage file permission](images/9.png)
 
