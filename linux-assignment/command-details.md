@@ -1,3 +1,10 @@
+## File System Navigation
+   1. List the contents of the home directory.
+   2. Change the current directory to /var/log and list its contents.
+   3. Find and display the path to the bash executable using the which command.
+   4. Find current shell
+
+
 ### 1. List the contents of the home directory
 
 Run the following command to list the contents of the home directory:
