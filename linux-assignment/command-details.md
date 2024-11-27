@@ -69,3 +69,62 @@ The output will show the name of the shell process, e.g., bash or zsh.
 
 
 ![name of shell process](images/7.png)
+
+
+## File and Directory Operations
+
+    1. Create a directory named linux_fundamentals in your home directory. 
+    2. Inside linux_fundamentals, create a subdirectory named scripts. 
+    3. Create an empty file named example.txt inside the linux_fundamentals directory. 
+    4. Copy example.txt to the scripts directory. 
+    5. Move example.txt from linux_fundamentals to linux_fundamentals/backup. 
+    6. Change the permissions of example.txt to read and write for the owner, and      read-only for the group and others. 
+    7. Verify the permission changes using ls -l
+
+
+### 1. Create a directory named *linux_fundamentals*
+
+
+        mkdir linux_fundamentals
+
+### 2. Inside linux_fundamentals, create a subdirectory named *scripts*
+
+        mkdir linux_fundamentals/scripts
+
+
+### 3. Create an empty file named *example.txt* inside the *linux_fundamentals* directory
+
+
+        touch linux_fundamentals/example.txt
+
+### 4. Copy *example.txt* to the *scripts* directory
+
+
+        cp linux_fundamentals/example.txt linux_fundamentals/scripts/
+
+
+### 5. Move example.txt from linux_fundamentals to linux_fundamentals/backup
+
+        1. First, create the backup directory:
+
+            mkdir linux_fundamentals/backup
+
+        2. First, create the backup directory:
+
+            mv linux_fundamentals/example.txt linux_fundamentals/backup/
+
+![file and forlder manage](images/8.png)
+
+## Permissions
+
+6. Change the permissions of *example.txt*
+
+        chmod 644 linux_fundamentals/backup/example.txt
+
+7. Verify the permission changes
+
+        ls -l linux_fundamentals/backup/example.txt
+
+
+![manage file permission](images/9.png)
+
