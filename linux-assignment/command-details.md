@@ -176,9 +176,9 @@ The output will show the name of the shell process, e.g., bash or zsh.
 
  >- Explanation:
 
-    >- ***sudo:*** Grants administrative privileges required to change file ownership.
+    >- sudo: Grants administrative privileges required to change file ownership.
 
-    >- ***chown student:*** Changes the owner of the file to *student*.
+    >- chown student: Changes the owner of the file to student.
 
 
 ### 3. Change the group of *example.txt* to a group named *students*
