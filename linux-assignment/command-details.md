@@ -201,5 +201,56 @@ The output will show the name of the shell process, e.g., bash or zsh.
 ![ile Modification](images/10.png)
 
 
+## Ownership
+
+ 1. Create a directory named project in your home directory. 
+ 2. Create a file named report.txt inside the project directory. 
+ 3. Set the permissions of report.txt to read and write for the owner, and read-only for the group and others. 
+ 4. Set the permissions of the project directory to read, write, and execute for the owner, and read and execute for the group and others 
+ 5. Verify the changes using appropriate commands.
+
+ ### Step 1: Create a directory named *project*.
+
+        mkdir project
+
+
+### Step 2: Create a file named *report.txt* inside the *project* directory.
+
+
+        touch project/report.txt
+
+### Step 3: Set the permissions of *report.txt* to read and write for the owner, and read-only for the group and others.
+
+        chmod 644 project/report.txt
+
+>- Explanation:
+
+        >- 6 = Read + Write (Owner)
+        >- 4 = Read-only (Group)
+        >- 4 = Read-only (Others)
+
+
+### Step 4: Set the permissions of the project directory to read, write, and execute for the owner, and read and execute for the group and others.
+
+        chmod 755 project
+
+>- Explanation:
+        >- 7 = Read + Write + Execute (Owner)
+        >- 5 = Read + Execute (Group)
+        >- 5 = Read + Execute (Others)
+
+### Step 5: Verify the changes using the following commands.
+
+        >- Check permissions of report.txt:
+
+                ls -l project/report.txt
+
+        Check permissions of the project directory:
+
+                ls -ld project
+
+![owner-ship](images/11.png)
+
+
 
 

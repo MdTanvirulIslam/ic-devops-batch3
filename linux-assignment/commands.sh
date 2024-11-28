@@ -64,3 +64,25 @@ sudo chgrp students example.txt
 # Step 6: Verify the changes
 ls -l example.txt
 
+
+
+# Step 1: Create a directory named project in the home directory
+mkdir project
+
+# Step 2: Create a file named report.txt inside the project directory
+touch project/report.txt
+
+# Step 3: Set the permissions of report.txt to read and write for the owner, and read-only for the group and others
+chmod 644 project/report.txt
+
+# Step 4: Set the permissions of the project directory to read, write, and execute for the owner,
+# and read and execute for the group and others
+chmod 755 project
+
+# Step 5: Verify the changes
+echo "Permissions for report.txt:"
+ls -l project/report.txt
+echo "Permissions for project directory:"
+ls -ld project
+
+
