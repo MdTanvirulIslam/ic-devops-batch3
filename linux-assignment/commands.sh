@@ -86,3 +86,38 @@ echo "Permissions for project directory:"
 ls -ld project
 
 
+
+
+# Task 1: Create a new user named developer
+useradd developer
+
+# Task 2: Set the home directory of the user developer to /home/developer_home
+usermod -d /home/developer_home developer
+mkdir -p /home/developer_home
+chown developer:developer /home/developer_home
+
+# Task 3: Assign the shell /bin/sh to the user developer
+usermod -s /bin/sh developer
+
+# Task 4: Verify the new user's information
+echo "User 'developer' details:"
+getent passwd developer
+
+# Task 5: Change the username of the user developer to devuser
+usermod -l devuser developer
+
+# Task 6: Add devuser to a group named devgroup
+groupadd devgroup
+usermod -aG devgroup devuser
+
+# Task 7: Set the password of devuser to devpass
+echo "devuser:Dev@1234" | chpasswd  # Use a strong password that complies with system policy
+
+# Task 8: Verify the changes made to the user
+echo "User 'devuser' details:"
+getent passwd devuser
+echo "Group memberships for 'devuser':"
+groups devuser
+
+
+

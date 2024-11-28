@@ -252,5 +252,115 @@ The output will show the name of the shell process, e.g., bash or zsh.
 ![owner-ship](images/11.png)
 
 
+## User add/modify
+
+ 1. Create a new user named developer. 
+ 2. Set the home directory of the user developer to /home/developer_home. 
+ 3. Assign the shell /bin/sh to the user developer. 
+ 4. Verify the new user's information. 
+ 5. Change the username of the user developer to devuser. 
+ 6. Add devuser to a group named devgroup. 
+ 7. Set the password of devuser to devpass. ( hint: use passwd command. Run passwd --help to see available options) 
+ 8. Verify the changes made to the user.
+
+
+ ### 1. Create a new user named developer:
+
+        useradd developer
+
+### 2. Set the home directory of the user developer to /home/developer_home:
+
+        usermod -d /home/developer_home developer
+        mkdir -p /home/developer_home
+        chown developer:developer /home/developer_home
+
+
+### 3. Assign the shell /bin/sh to the user developer
+
+        usermod -s /bin/sh developer
+
+### 4. Verify the new user's information:
+
+        getent passwd developer
+
+### 5. Change the username of the user developer to devuser:
+
+        usermod -l devuser developer
+
+### 6. Add devuser to a group named devgroup:
+
+        >- Create the group devgroup if it does not already exist:
+
+                groupadd devgroup
+
+        >- Add devuser to the group:
+
+                usermod -aG devgroup devuser
+
+### 7. Set the password of devuser to devpass:
+
+        echo "devuser:devpass" | chpasswd
+
+>- Note : Temporarily Relax the Password Policy
+
+#### Steps -1 :
+
+>- Open the configuration file:
+
+        nano /etc/pam.d/common-password
+
+>- Look for a line similar to:
+
+        password requisite pam_pwquality.so retry=3
+
+
+>- Modify it to:
+
+        password requisite pam_pwquality.so retry=3 minlen=4
+
+>- Save the file and exit (Ctrl+O, Enter, Ctrl+X).
+
+### Step -2 :
+
+>- Edit the Password Quality Configuration:
+
+        nano /etc/security/pwquality.conf
+
+Disable the Dictionary Check: Add or modify the following line:
+
+        dictcheck=0
+
+>- Save and Exit: Save changes and exit the editor (Ctrl+O, Enter, Ctrl+X).
+
+
+
+
+### 8. Verify the changes made to the user:
+
+        >- Check the user information:
+
+                getent passwd devuser
+
+
+        >- Verify group membership:
+
+                groups devuser
+
+### Explanation:
+
+>- usermod: Modifies user properties such as home directory, shell, and username.
+>- groupadd: Creates a new group.
+>- chpasswd: Sets a user password from input (username:password format).
+>- getent passwd: Displays user details.
+>- groups: Lists the groups a user belongs to.
+
+
+![User add/modify](images/12.png)
+
+![User add/modify](images/13.png)
+
+
+
+
 
 
