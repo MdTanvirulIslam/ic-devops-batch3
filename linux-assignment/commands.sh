@@ -121,3 +121,44 @@ groups devuser
 
 
 
+# Task 1: Create a file named original.txt in your home directory
+echo "This is the original file." > original.txt
+
+# Task 2: Create a symbolic link named softlink.txt pointing to original.txt
+ln -s original.txt softlink.txt
+
+# Task 3: Verify the symbolic link
+echo "Verifying symbolic link:"
+ls -l softlink.txt
+
+# Task 4: Delete the original file original.txt and observe the status of the symbolic link
+rm original.txt
+echo "After deleting original.txt, symbolic link status:"
+ls -l softlink.txt  # The link will now be broken
+
+# Task 5: Create a file named datafile.txt in your home directory
+echo "This is the data file." > datafile.txt
+
+# Task 6: Create a hard link named hardlink.txt pointing to datafile.txt
+ln datafile.txt hardlink.txt
+
+# Task 7: Verify the hard link
+echo "Verifying hard link:"
+ls -l datafile.txt hardlink.txt
+
+# Task 8: Check the inode of both datafile.txt and hardlink.txt
+echo "Inodes of datafile.txt and hardlink.txt:"
+ls -i datafile.txt hardlink.txt
+
+# Task 9: Delete the original file datafile.txt and observe the status of the hard link
+rm datafile.txt
+echo "After deleting datafile.txt, hard link status:"
+ls -l hardlink.txt  # The hard link should still work
+
+# Task 10: Find all .txt files in your home directory
+echo "Finding all .txt files in the home directory:"
+find . -type f -name "*.txt"
+
+
+
+

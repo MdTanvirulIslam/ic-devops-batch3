@@ -320,7 +320,7 @@ The output will show the name of the shell process, e.g., bash or zsh.
 
 >- Save the file and exit (Ctrl+O, Enter, Ctrl+X).
 
-### Step -2 :
+#### Steps -2 :
 
 >- Edit the Password Quality Configuration:
 
@@ -360,6 +360,81 @@ Disable the Dictionary Check: Add or modify the following line:
 ![User add/modify](images/13.png)
 
 
+
+## Hard/Soft Link
+
+ 1. Create a file named original.txt in your home directory. 
+ 2. Create a symbolic link named softlink.txt pointing to original.txt. 
+ 3. Verify the symbolic link and ensure it points to the correct file. 
+ 4. Delete the original file original.txt and observe the status of the symbolic link. 
+ 5. Create a file named datafile.txt in your home directory. 
+ 6. Create a hard link named hardlink.txt pointing to datafile.txt. 
+ 7. Verify the hard link and ensure it correctly points to the file. 
+ 8. Check the inode of both datafile.txt and hardlink.txt 
+ 9. Delete the original file datafile.txt and observe the status of the hard link. 
+ 10. Find all .txt files in your home directory. ( use find command. Run find --help for usage)
+
+
+ ### 1. Create a file named original.txt in the current directory:
+
+        echo "This is the original file." > original.txt
+
+### 2. Create a symbolic link named softlink.txt pointing to original.txt:
+
+
+        ln -s original.txt softlink.txt
+
+Creates a symbolic (soft) link.
+
+
+### 3. Verify Links:
+
+        ls -l
+
+Lists details about files and symbolic links.
+
+
+### 4: Delete the original file original.txt and observe the status of the symbolic link:
+
+        rm original.txt
+        ls -l softlink.txt
+
+
+### 5: Create a file named datafile.txt in the current directory:
+
+        echo "This is the data file." > datafile.txt
+
+### 6: Create a hard link named hardlink.txt pointing to datafile.txt:
+
+        ln datafile.txt hardlink.txt
+
+
+### 7: Verify the hard link:
+
+        ls -l datafile.txt hardlink.txt
+
+
+### 8: Check the inode of both datafile.txt and hardlink.txt:
+
+        ls -i datafile.txt hardlink.txt
+
+### 9: Delete the original file datafile.txt and observe the status of the hard link:
+
+
+
+        rm datafile.txt
+        ls -l hardlink.txt
+
+### 10: Find all .txt files in the current directory:
+
+
+        find . -type f -name "*.txt"
+
+
+
+![hard and soft link](images/14.png)
+
+![hard and soft link](images/15.png)
 
 
 
