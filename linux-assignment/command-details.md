@@ -437,5 +437,60 @@ Lists details about files and symbolic links.
 ![hard and soft link](images/15.png)
 
 
+## Package installation
+
+ 1. Update repo cache using apt/apt-get 
+ 2. Install a package named tree 
+ 3. Install gcloud CLI tool using apt ( Follow instructions from here: https://cloud.google.com/sdk/docs/install#deb )
+
+
+ ### Step 1: Update the repository cache
+
+        sudo apt update
+
+### Step 2: Install the tree package
+
+        sudo apt install -y tree
+
+### Step 3: Install the gcloud CLI tool
+        
+>- 1. Add the Google Cloud public key:
+
+        echo "Importing the Google Cloud public key..."
+        sudo apt-get install -y apt-transport-https ca-certificates
+        curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo tee /usr/share/keyrings/cloud.google.gpg > /dev/null
+
+>- 2. Update the repository cache again:
+
+        sudo apt update
+
+>- 3. Install the Google Cloud CLI:
+
+        sudo apt install -y google-cloud-sdk
+
+If there is a error to Install- Fetch and Add the Correct GPG Key
+
+Run the following commands to download and add the Google Cloud SDK repository's public GPG key:
+
+        sudo apt-get install -y curl apt-transport-https
+        curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
+
+
+Check if the gcloud CLI is successfully installed:
+
+
+        gcloud --version
+
+
+![apt upate](images/16.png)
+![install tree](images/17.png)
+![Add the Google Cloud public signing key](images/18.png)
+![install google cli](images/20.png)
+![install google cli](images/21.png)
+
+
+
+
+
 
 

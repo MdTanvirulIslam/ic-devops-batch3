@@ -161,4 +161,36 @@ find . -type f -name "*.txt"
 
 
 
+# Task 1: Update the repository cache using apt
+echo "Updating repository cache..."
+sudo apt update
+
+# Task 2: Install a package named tree
+echo "Installing 'tree' package..."
+sudo apt install -y tree
+
+# Task 3: Install gcloud CLI tool
+echo "Installing gcloud CLI tool..."
+
+# Add the Cloud SDK distribution URI as a package source
+echo "Adding the Cloud SDK distribution URI..."
+echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list > /dev/null
+
+# Import the Google Cloud public key
+echo "Importing the Google Cloud public key..."
+sudo apt-get install -y apt-transport-https ca-certificates
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo tee /usr/share/keyrings/cloud.google.gpg > /dev/null
+
+# Update and install the Google Cloud SDK
+echo "Updating repository cache and installing Google Cloud SDK..."
+sudo apt update && sudo apt install -y google-cloud-sdk
+
+# Verify installation
+echo "Verifying installations..."
+tree --version
+gcloud --version
+
+
+
+
 
